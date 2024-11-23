@@ -49,17 +49,14 @@
       dest: /etc/systemd/system/backend.service
   
 
-  - name: Run SQL from backend.sql
-    command: mysql -u user -p password < /app/schema/backend.sql
-
   - name: import mysql data
     community.mysql.mysql_db: 
       login_user: root
       login_password: "{{ mysql_root_password }}"
       login_host: "{{ login_host }}"
       target: /app/schema/backend.sql
-      state: dump
-      # state: import
+      # state: dump
+      state: import
       name: all
   
   - name: daemon reload

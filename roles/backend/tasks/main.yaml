@@ -31,7 +31,8 @@
   - name: install dependencies
     ansible.builtin.command: npm install package.json
     args:
-      chdir: /{{ app_location }}
+      chdir: /app
+
   # - name: Install dependencies using npm
   #   ansible.builtin.command:
   #     cmd: npm install
@@ -53,12 +54,11 @@
       login_user: root
       login_password: "{{ mysql_root_password }}"
       login_host: "{{ login_host }}"
-      target: /{{ app_location }}/schema/backend.sql
-      # state: dump
-      state: import
+      target: /app/schema/backend.sql
+      state: dump
+      # state: import
       name: all
-    
-   
+  
   - name: daemon reload
     ansible.builtin.systemd_service:
       daemon_reload: true

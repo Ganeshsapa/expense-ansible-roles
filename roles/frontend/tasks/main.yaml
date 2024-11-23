@@ -33,8 +33,10 @@
       #src: /home/ec2-user/expense-ansible-roles/files/expense.conf
       src: expense.conf.j2
       dest: /etc/nginx/default.d/expense.conf
+    notify:
+    - Restart nginx
 
-  - name: restart nginx
-    ansible.builtin.service:
-      name: nginx
-      state: restarted
+  # - name: restart nginx
+  #   ansible.builtin.service:
+  #     name: nginx
+  #     state: restarted

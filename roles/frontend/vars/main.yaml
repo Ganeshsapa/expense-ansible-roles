@@ -1,1 +1,4 @@
 BACKEND_HOST: backend.chanakya.blog
+login_host: mysql.chanakya.blog  
+app_location: /usr/share/nginx/html
+component: frontend

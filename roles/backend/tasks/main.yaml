@@ -46,7 +46,7 @@
 
   - name: copy backend service # copy only works file without variables
     ansible.builtin.template:
-      src: expense-ansible-roles/roles/backend/tempalates/backend.service.j2
+      src: /backend.service
       dest: /etc/systemd/system/backend.service
 
   - name: import mysql data

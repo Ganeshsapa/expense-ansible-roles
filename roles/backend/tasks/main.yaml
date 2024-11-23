@@ -40,7 +40,7 @@
   #       chdir: /app
   - name: Install dependencies using npm
     ansible.builtin.command:
-        _raw_params: npm install
+        cmd: npm install
         chdir: /app
 
   - name: copy backend service # copy only works file without variables

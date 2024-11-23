@@ -6,7 +6,7 @@
 
 - name: create app directory
   ansible.builtin.file:
-    path: /app/package.json
+    path: /app
     state: directory
     mode: '0755'
 

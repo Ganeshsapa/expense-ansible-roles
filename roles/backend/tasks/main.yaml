@@ -49,6 +49,11 @@
       dest: /etc/systemd/system/backend.service
     become: true
 
+  - name: Copy backend.sql to the remote host
+    copy:
+      src: /local/path/to/backend.sql
+      dest: /app/schema/backend.sql
+
   - name: import mysql data
     community.mysql.mysql_db: 
       login_user: root

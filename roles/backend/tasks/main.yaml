@@ -31,8 +31,7 @@
   - name: install dependencies
     ansible.builtin.command: npm install package.json
     args:
-      chdir: /app
-
+      chdir: /{{ app_location }}
   # - name: Install dependencies using npm
   #   ansible.builtin.command:
   #     cmd: npm install
@@ -47,20 +46,19 @@
     ansible.builtin.template:
       src: /home/ec2-user/expense-ansible-roles/roles/backend/tempalates/backend.service.j2 # backend.service.j2 if using remot-src but my code not running root running /home 
       dest: /etc/systemd/system/backend.service
-    become: true
+  
 
   - name: import mysql data
     community.mysql.mysql_db: 
       login_user: root
       login_password: "{{ mysql_root_password }}"
       login_host: "{{ login_host }}"
-      target: /app/schema/backend.sql
+      target: /{{ app_location }}/schema/backend.sql
       # state: dump
       state: import
       name: all
-    become: true
-      
-
+    
+   
   - name: daemon reload
     ansible.builtin.systemd_service:
       daemon_reload: true

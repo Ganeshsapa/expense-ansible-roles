@@ -31,7 +31,7 @@
   - name: install dependencies
     ansible.builtin.command: npm install
     args:
-      chdir: /app
+      chdir: '/app/package.json'
 
   - name: copy backend service # copy only works file without variables
     ansible.builtin.template:

@@ -30,7 +30,8 @@
 
   - name: copy expense conf
     ansible.builtin.copy:
-      src: expense.conf
+      src: /home/ec2-user/expense-ansible-roles/files/expense.conf
+      #src: expense.conf
       dest: /etc/nginx/default.d/expense.conf
 
   - name: restart nginx

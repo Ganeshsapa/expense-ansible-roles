@@ -16,7 +16,7 @@
   - name: extract the code
     ansible.builtin.unarchive:
       src: /tmp/frontend.zip
-      dest: /usr/share/nginx/html
+      dest: {{ app_location }}
       remote_src: yes
 
   - name: copy expense conf

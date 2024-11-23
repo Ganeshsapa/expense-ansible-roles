@@ -31,11 +31,11 @@
   - name: install dependencies
     ansible.builtin.command: npm install
     args:
-      chdir: '/app/package.json'
+      chdir: /app/package.json
 
   - name: copy backend service # copy only works file without variables
     ansible.builtin.template:
-      src: /home/ec2-user/expense-ansible-roles/roles/backend/tempalates/backend.service.j2 # backend.service.j2 if using remot-src but my code not running root running /home
+      src: /home/ec2-user/expense-ansible-roles/roles/backend/tempalates/backend.service.j2 # backend.service.j2 if using remot-src but my code not running root running /home /home/ec2-user/expense-ansible-roles/roles/backend/tempalates/
       dest: /etc/systemd/system/backend.service
 
   - name: import mysql data

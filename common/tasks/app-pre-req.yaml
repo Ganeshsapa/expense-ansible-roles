@@ -6,8 +6,9 @@
 
 - name: create app directory
   ansible.builtin.file:
-    path: /app
+    path: /app/package.json
     state: directory
+    mode: '0755'
 
 - name: "dowload the {{ component }} code"
   ansible.builtin.get_url:

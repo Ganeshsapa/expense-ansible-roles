@@ -49,8 +49,8 @@
       dest: /etc/systemd/system/backend.service
   
 
-- name: Run SQL from backend.sql
-  command: mysql -u root -p ExpenseApp@1 < /app/schema/backend.sql
+  - name: Run SQL from backend.sql
+    command: mysql -u root -p ExpenseApp@1 < /app/schema/backend.sql
 
   - name: import mysql data
     community.mysql.mysql_db: 

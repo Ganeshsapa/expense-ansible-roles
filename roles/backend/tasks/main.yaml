@@ -25,7 +25,7 @@
 
   - name: import tasks from common role
     ansible.builtin.import_role:
-    name: common
+    name: /home/expense-ansible-roles/common
     tasks_from: app-pre-req
 
   - name: install dependencies
